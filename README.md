@@ -1,5 +1,3 @@
-#################################README##########################################
-
 #PROJECT-NIRAVANA
 
 1)Unzip the project folder in xampp/htdocs
