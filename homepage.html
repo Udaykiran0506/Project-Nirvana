@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<style>
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(homepage.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    vertical-align: center;
+   
+}
+.header {
+    background-color:  rgb(37, 35, 35);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container{}
+.logo {
+    height: 70px;
+    width: 250px;
+}
+.header-content{}
+.search-bar {
+    margin-left: auto;
+    display: flex;
+    background-color: gray;
+}
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px 0 0 5px;
+    width: 300px;
+    background-color: gray;
+}
+.search-button {
+    background-color: #f90;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.user-actions {
+    display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0;
+            padding: 0vh 50px ;
+            float: right;
+}
+
+.user-actions a {
+            text-decoration: none;
+            margin-left:10vh;
+            position: relative;
+            font-size: 1.0em;
+            color: #3cccb9;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 30px;
+}
+.user-actions a::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            bottom: -6px;
+            background: #fff;
+            transform: scaleX(0);
+            transition: transform .5s;
+            transform-origin: right;
+        }
+.user-actions a:hover::after{
+            transform: scaleX(1);
+            transform-origin: left;
+}
+.hero {
+    text-align: center;
+    background: transparent;
+    padding: 160px 0;
+}
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    background: transparent;
+}
+footer {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.explore-button {
+    background-color: #fff;
+    text-align: center;
+   
+}
+.explore-button-main {
+    background-color: #f90;
+    color: whitesmoke;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.explore-button-main:hover {
+    background-color: whitesmoke;
+    color: #3cccb9;
+    transform: scale(1.05);
+}
+.search-bar {
+    display: flex;
+    align-items: center; 
+    position: relative;
+}
+#search-input {
+    padding: 10px 30px 10px 40px;  
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    background-color: rgb(211, 183, 22);
+    background-position: 10px center;
+}
+#search-input::before {
+    content: "\1F50D"; 
+    position: absolute;
+    left: 10px; 
+    font-size: 20px; 
+}
+.search-results {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: gray;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
+    z-index: 1; 
+}
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    text-align:center;
+    transition: background-color 0.3s;
+}
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}
+</style>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="header-content">
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search......">
+    <div class="search-results"></div>
+</div>
+<br>
+            <div class="user-actions">
+                <a href="login.html">Login</a>
+                <a href="#">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container" style="background-color: rgb(133, 214, 207);margin-top: 100px;opacity: 0.2;">
+            <section class="explore-button">
+                <div class="container" style="background-color:  rgb(133, 214, 207);">
+                    <a style="text-decoration: none;" href="#"><button class="explore-button-main" style="opacity: 1.5;">Explore More</button></a>
+                </div>
+            </section>
+        </div>
+    </section>
+    <footer>
+        
+            <p>&copy; 2023 MyShop</p>
+        
+    </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.querySelector(".search-results");
+
+        // Sample data for related options (you can replace this with your own data)
+        const relatedOptions = [
+            { text: "Login", link: "login.html" },
+            { text: "Register", link: "registration.html" },
+            { text: "Test", link: "test.html" },
+            { text: "Solutions", link: "solutions.html" },
+            { text: "Game", link: "game.html" },
+            { text: "Yoga", link: "yoga.html" },
+            { text: "Postures", link: "poses.html" },
+            { text: "Dashboard", link: "dashboard.html" },
+        ];
+
+        // Function to update the displayed related options
+        function updateRelatedOptions(query) {
+            searchResults.innerHTML = "";
+
+            if (query.trim() === "") {
+                searchResults.style.display = "none";
+                return;
+            }
+
+            const filteredOptions = relatedOptions.filter(option =>
+                option.text.toLowerCase().includes(query.toLowerCase())
+            );
+
+            filteredOptions.forEach(option => {
+                const optionElement = document.createElement("div");
+                optionElement.classList.add("search-result-item");
+                optionElement.textContent = option.text;
+
+                // Create a link element for the option
+                const optionLink = document.createElement("a");
+                optionLink.href = option.link;
+                optionLink.appendChild(optionElement);
+
+                // Add a click event to open the selected option
+                optionLink.addEventListener("click", (e) => {
+                    e.preventDefault(); // Prevent the default link behavior
+                    window.location.href = option.link; // Navigate to the respective page
+                });
+
+                searchResults.appendChild(optionLink);
+            });
+
+            if (filteredOptions.length > 0) {
+                searchResults.style.display = "block";
+            } else {
+                searchResults.style.display = "none";
+            }
+        }
+
+        // Event listener for input changes
+        searchInput.addEventListener("input", function () {
+            const query = this.value;
+            updateRelatedOptions(query);
+        });
+    });
+</script>
+
+</body>
+</html>

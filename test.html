@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASS-Y</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            text-align: center;
+            background-image: url(test.jpg);
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 60px;
+            height: 250px;
+            text-align: left;
+            margin-top: 80px;
+        }
+        .header {
+            background: transparent;
+            color: #fff;
+            padding: 10px 20px;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+.logo {
+
+height: 70px;
+width: 250px;
+}
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button{
+            text-decoration: none;
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .button1 {
+            text-decoration: none;
+            width: 150px;
+            height: 50px;
+            border: none;
+            background-color: whitesmoke;
+            color: maroon;
+            cursor: pointer;
+            margin: 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+
+        #scoreResult {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" class="logo">
+    </div>
+    <div class="container">
+        <h1>DASS-Y Test</h1>
+        <div id="questionContainer">
+        </div>
+        <button id="prevButton" style="float: left;">Previous</button>
+        <button id="nextButton" style="float: right;">Next</button>
+        <div id="scoreResult">
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            "I did not enjoy anything",
+            "I hated my life",
+            "I could not stop feeling sad", 
+            "There was nothing nice I could look forward to",
+            "I hated myself",
+            "I felt like I was no good",
+            "I felt that life was terrible",
+            "I felt dizzy, like I was about to faint",
+            "I had trouble breathing (e.g. fast breathing), even though I wasn't exercising and I was not sick",
+            "My hands felt shaky",
+            "I felt terrified",
+            "I felt like I was about to panic",
+            "I could feel my heart beating really fast , even though I had not done any hard exercise",
+            "I felt scared for no good reason",
+            "I got upset about little things",
+            "I found myself over-reacting to situtations",
+            "I was stressing about lots of things",
+            "I was easily irritated",
+            "I found it difficult to relax",
+            "I got annoyed when people interrrupted me",
+            "I was easily annoyed"
+        ];
+
+        const responses = [];
+        let currentQuestionIndex = 0;
+
+        const questionContainer = document.getElementById("questionContainer");
+        const nextButton = document.getElementById("nextButton");
+        const prevButton = document.getElementById("prevButton");
+        const scoreResult = document.getElementById("scoreResult");
+
+        function displayQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                const question = questions[currentQuestionIndex];
+                const questionElement = document.createElement("div");
+                questionElement.classList.add("question");
+                questionElement.innerHTML = `
+                    <p>${currentQuestionIndex + 1}. ${question}</p>
+                    <label><input type="radio" name="response" value="0"> Not True</label>
+                    <label><input type="radio" name="response" value="1"> A little True</label>
+                    <label><input type="radio" name="response" value="2"> Fairly True</label>
+                    <label><input type="radio" name="response" value="3"> Very True</label>
+                `;
+                questionContainer.innerHTML = "";
+                questionContainer.appendChild(questionElement);
+
+                // Show or hide the Previous button based on the current question
+                prevButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+            } else {
+                // All questions have been answered
+                questionContainer.innerHTML = "";
+                nextButton.style.display = "none";
+                prevButton.style.display = "none";
+                calculateScore();
+            }
+        }
+
+        function calculateScore() {
+            // Calculate the total score for each subscale (Depression, Anxiety, Stress)
+            const depressionScore = 2*responses.slice(1, 7).reduce((acc, val) => acc + val, 2);
+            const anxietyScore = 2*responses.slice(7, 14).reduce((acc, val) => acc + val, 2);
+            const stressScore = 2*responses.slice(14, 21).reduce((acc, val) => acc + val, 2);
+
+
+            // Interpret the scores and display the result
+             depressionScore; 
+            let interpretation = "";
+            if (depressionScore < 9) {
+                interpretation = "Normal";
+            } else if (depressionScore < 14) {
+                interpretation = "Mild";
+            } else if (depressionScore <= 20) {
+                interpretation = "Moderate";
+            } else if (depressionScore <= 27) {
+                interpretation = "Severe";
+            } else {
+                interpretation = "Extremely Severe";
+            }
+
+            scoreResult.innerHTML += `<p>Depression: ${depressionScore} (${interpretation})`;
+            scoreResult.style.display = "block";
+
+             anxietyScore; 
+            let interpretat = "";
+            if (anxietyScore < 8) {
+                interpretat = "Normal";
+            } else if (anxietyScore < 10) {
+                interpretat = "Mild";
+            } else if (anxietyScore <= 14) {
+                interpretat = "Moderate";
+            } else if (anxietyScore <= 19) {
+                interpretat = "Severe";
+            } else {
+                interpretat = "Extremely Severe";
+            }
+
+            scoreResult.innerHTML += `<p>Anxiety: ${anxietyScore} (${interpretat})`;
+            scoreResult.style.display = "block";
+             stressScore; 
+            let interpret = "";
+            if (stressScore < 15) {
+                interpret = "Normal";
+            } else if (stressScore < 19) {
+                interpret = "Mild";
+            } else if (stressScore <= 25) {
+                interpret = "Moderate";
+            } else if (stressScore <= 33) {
+                interpret = "Severe";
+            } else {
+                interpret = "Extremely Severe";
+            }
+
+            scoreResult.innerHTML += `<p>Stress: ${stressScore} (${interpret})`;
+            scoreResult.style.display = "block";
+        }
+
+        nextButton.addEventListener("click", function () {
+            const selectedResponse = document.querySelector('input[name="response"]:checked');
+            if (selectedResponse) {
+                // Store the user's response
+                responses[currentQuestionIndex] = parseInt(selectedResponse.value, 10);
+
+                // Move to the next question
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                alert("Please select a response before proceeding.");
+            }
+        });
+
+        prevButton.addEventListener("click", function () {
+            // Move to the previous question
+            currentQuestionIndex--;
+            displayQuestion();
+        });
+
+        // Display the first question initially
+        displayQuestion();
+    </script>
+
+
+<a href="dashboard.html"><button class="button1" >End Test</button></a>
+
+  
+</body>
+</html>

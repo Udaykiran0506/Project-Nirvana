@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Background Music and Sound Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            text-align: center;
+            background-image: url(y2.jpg);
+        }
+        .header {
+            background: transparent;
+            color: #fff;
+            padding: 10px 20px;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items:start;
+        }
+.logo {
+
+height: 70px;
+width: 250px;
+}
+        
+        .container {
+            width: 80%; /* Adjust the width of the container as needed */
+            max-width: 800px;
+            position: relative;
+            align-items: center;
+            left: 22%;
+        }
+
+        video {
+            width: 110%;
+            height: 70vh;
+            object-fit: contain;
+        }
+
+        .external-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            height: 5vh;
+        }
+
+        .external-controls button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: whitesmoke;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        .btn {
+            text-decoration: none;
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: gold;
+            color: black;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+        }
+
+.btn:hover {
+    background-color:whitesmoke;
+}
+footer {
+    text-align:center;
+    padding: 20px 0px;
+    background: transparent;
+    color:black;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" class="logo">
+      </div>
+    <div class="container">
+        <video controls autoplay loop muted playsinline>
+            <source src="yoga.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="external-controls">
+            <button onclick="document.querySelector('video').pause()">Pause</button>
+            <button onclick="document.querySelector('video').play()">Play</button>
+            <button onclick="document.querySelector('video').currentTime += 5">Forward</button>
+            <button onclick="document.querySelector('video').currentTime -= 5">Backward</button>
+        </div>
+    </div>
+    <footer>
+        <a href="dashboard.html"><button class="btn">Back</button></a>
+        <p> © copyrights 2023. All rights reserved<br>
+            Copyright Disclaimer under section 107 of the Copyright Act 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research
+            
+        </p>
+    </footer>
+</body>
+
+</html>

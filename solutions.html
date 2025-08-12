@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions</title>
+<style>
+    body, h1, form {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: transparent;
+    color: #333;
+    text-align: center;
+    background-image: url(art.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+td{
+            text-align:left;
+            vertical-align:top;
+
+        }
+        table.center{
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+
+        .header {
+            background: transparent;
+            color: #fff;
+            padding: 10px 20px;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+.logo {
+    height: 70px;
+    width: 250px;
+
+}
+
+.footer{
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+    bottom: 0;
+}
+        .container {
+            background: transparent;
+            color: whitesmoke;
+            backdrop-filter: blur(10px);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+        }
+
+        .results-container {
+            background: transparent;
+            color:black;
+            backdrop-filter: blur(20px);
+            background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-decoration: none;
+        }
+        button{
+            text-decoration: none;
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color:#fff;
+            color: black;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin: 15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+</style>
+<script>
+    function getresultDASSY() {
+        // Get the input values
+        var depressionScore = parseInt(document.getElementById('depression').value);
+        var anxietyScore = parseInt(document.getElementById('anxiety').value);
+        var stressScore = parseInt(document.getElementById('stress').value);
+
+
+    if (isNaN(depressionScore) || isNaN(anxietyScore) || isNaN(stressScore)) {
+        document.getElementById('results-container').innerHTML = "Enter valid numeric scores for all fields.";
+        return;
+    }
+
+        // Assess depression level
+        var DepressionMessage = "";
+        if (depressionScore < 0) {
+            depressionMessage = "Enter the valid Score";
+        }else if (depressionScore < 9) {
+            depressionMessage = "Your depression level is Normal.  Stay stress-free & Engage in <a style='text-decoration: none;' href='https://youtu.be/X9ICZge3LWo?si=7MwTovIo-Zf5RHJO'>Tai Chi</a> & <a style='text-decoration: none;' href='https://www.healthline.com/health/fitness-exercise/at-home-workouts#intermediate-routine'>regular exercises.</a>";
+        } else if (depressionScore < 14) {
+            depressionMessage = "You have mild depression symptoms.Seek family or friends for emotional support and build <a style='text-decoration: none;' href='https://youtu.be/TFbv757kup4?si=aDdvgq39IbEwCL_2'>mental strength.";
+        }else if (depressionScore <=20) {
+            depressionMessage = "You have Moderate depression symptoms. Consider <a style='text-decoration: none;' href='https://www.example.com/therapy'>Therapy sessions</a> & <a style='text-decoration: none;' href='https://yes-pdf.com/electronic-book/1074'>Self help books.</a>";
+        }else if (depressionScore <=27) {
+            depressionMessage = "You have severe depression symptoms. Consult a <a style='text-decoration: none;' href='https://www.manastha.com/#:~:text=Manastha%20provides%20the%20best%20online,consultation%20and%20Online%20Psychiatric%20Consultation.'>mental health professional.";
+        }else {
+            depressionMessage = "Your depression level is Extremely Severe. Seek for <a style='text-decoration: none;' href='https://www.vogue.in/wellness/content/verified-mental-health-helplines-and-services-pan-india-suicide-helplines-therapists-counsellors'>emergency services.</a>";
+        }
+
+        // Assess anxiety level
+        var anxietyMessage = "";
+        if (anxietyScore < 0) {
+            anxietyMessage = "Enter the valid Score";
+        }else if (anxietyScore == 0) {
+            anxietyMessage = "Anxiety free person";
+        }else if (anxietyScore < 8) {
+            anxietyMessage = "Your anxiety level is Normal. Keep up the good work & Practice  <a style='text-decoration: none;' href='https://youtu.be/a7OxihFhlPk?si=8avb9RnnJkUpF6rb'>deep breathing exercises.</a>";
+        } else if (anxietyScore < 10) {
+            anxietyMessage = "You have mild anxiety symptoms. Try <a style='text-decoration: none;' href='https://youtu.be/doLvegQd4L0?si=tZX_sCCdjzmjwliR'>meditation </a> & <a style='text-decoration: none;' href='https://youtu.be/PttMV1xRJv4?si=89LPC2wbyJvFDkt0'>Mindfullness.</a>techniques";
+        }else if (anxietyScore <=14) {
+            anxietyMessage = "You have Moderate anxiety symptoms. Consider <a style='text-decoration: none;' href='https://youtu.be/7cqzSNgNo1M?si=gqeKYCc32h9G4ZDH'>yoga</a> & <a href='https://youtu.be/L1HCG3BGK8I?si=jCAK4AFCT-3Cmm6J'>relaxation exercises.</a>";
+        }else if (anxietyScore <=19) {
+            anxietyMessage = "You have severe anxiety symptoms. Consult a <a style='text-decoration: none;' href='https://www.manastha.com/'>therapist </a> & <a style='text-decoration: none;' href='https://youtu.be/ArS-SJi2sbM?si=kScHWelMHmsaTpsB'>CBT.</a>";
+        }else {
+            anxietyMessage = "Your anxiety level is Extremely Severe. Seek immediate  <a style='text-decoration: none;' href='https://www.hopequre.com/'>Medical help.</a>";
+        }
+
+        // Assess stress level
+        var stressMessage = "";
+        if (stressScore < 0) {
+            stressMessage = "Enter the valid Score";
+        }else if (stressScore == 0) {
+            stressMessage = "Stress free person";
+        }else if (stressScore < 15) {
+            stressMessage = "Your stress level is Normal. Practice <a style='text-decoration: none;' href='https://youtu.be/CQjGqtH-2YI?si=AINMQy62Jz7L9mjq'>relaxation techniques.</a>";
+        } else if (stressScore < 19) {
+            stressMessage = "You have mild stress symptoms. Implement <a style='text-decoration: none;' href='https://youtu.be/RiI1NkaDXlQ?si=AfuYwhL3OfdxSch0'>effective time management.</a>";
+        }else if (stressScore <=25) {
+            stressMessage = "You have moderate stress symptoms. Consider <a style='text-decoration: none;' href='https://www.health.harvard.edu/staying-healthy/exercising-to-relax'>regular exercise</a> & <a style='text-decoration: none;' href='https://time.com/6272801/how-to-find-new-hobbies/'>hobbies.</a>";
+        }else if (stressScore <=33) {
+            stressMessage = "You have severe stress symptoms. Talk to a counselor or checkout <a style='text-decoration: none;' href='https://positivepsychology.com/stress-management-activities-worksheets/'>stress management.</a>";
+        }else {
+            stressMessage = "Your stress level is extremely severe.Seek immediate <a style='text-decoration: none;' href='https://www.manastha.com/#:~:text=Manastha%20provides%20the%20best%20online,consultation%20and%20Online%20Psychiatric%20Consultation.'>professional help.</a>";
+        }
+
+        // Display the recommendations within the results container
+        var resultsContainer = document.getElementById('results-container');
+        resultsContainer.innerHTML = `
+            <div class="results">
+                <div>Depression Recommendation: ${depressionMessage}</div><br>
+                <div>Anxiety Recommendation: ${anxietyMessage}</div><br>
+                <div>Stress Recommendation: ${stressMessage}</div><br>
+            </div>
+        `;
+    }
+</script>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" class="logo">
+      </div>
+      <h1 style="text-align: center;margin-top: 10px;color: whitesmoke;">DASS-Y Test Results</h1>
+      <div class="container">
+        <h1 style="text-align: start; text-align: center;"><b>Enter Your Score Here</b></h1><br>
+        <form>
+            <table class="center">
+                <tr>
+            <td><label for="depression">Depression Score:</label></td>
+            <td><input type="text" id="depression" min="0" max="42" required><br><br></td>
+</tr>
+            <tr><td><label for="anxiety">Anxiety Score:</label></td>
+           <td> <input type="text" id="anxiety" min="0" max="42" required><br><br></td>
+</tr>
+           <tr><td><label for="stress">Stress Score:</label></td>
+            <td><input type="text" id="stress" min="0" max="42" required><br><br></td>
+</tr>
+           
+            </table>
+            <input type="button"  value="Get Result" onclick="getresultDASSY()">
+            </form>
+        </form>
+
+        <div class="results-container" id="results-container"></div>
+    </div>
+    <a href="dashboard.html"><button class="button1" >Back</button></a>
+    <footer class="footer">
+        <p> © copyrights 2023. All rights reserved<br>
+            Copyright Disclaimer under section 107 of the Copyright Act 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research
+            
+        </p>
+    </footer>
+    
+</body>
+</html>

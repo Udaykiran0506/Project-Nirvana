@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+            margin:0;
+            padding:0;
+            display: flex;
+            flex-direction: column;
+            background-image: url(background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .header {
+            background-color: rgb(37, 35, 35);
+            color: #fff;
+            padding: 10px 20px;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navigation{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0;
+            padding: 0vh 50px ;
+            float: right;
+        }
+        .navigation a{
+            text-decoration: none;
+            margin-left:10vh;
+        }
+
+        .navigation a{
+            position: relative;
+            font-size: 1.1em;
+            color: #3cccb9;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 40px;
+        } 
+        .navigation a::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            left: 0;
+            bottom: -6px;
+            background: #fff;
+            transform: scaleX(0);
+            transition: transform .5s;
+            transform-origin: right;
+        }
+        .navigation a:hover::after{
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+
+        .sidebar {
+            background-color: rgb(49, 42, 42);
+            color: red;
+            width: 150px;
+            height:90vh;
+            padding: 20px;
+            flex-shrink: 0;
+            opacity:0.5;
+        }
+        .sidebar a{
+            text-decoration: none;
+            color: #3cccb9;
+            font-weight: 600;
+        }
+
+
+        .dashboard {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10%;
+            padding: 10px;
+            height: 20vh;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            flex-basis: calc(30% - 10px);
+            text-align:center;
+            vertical-align:middle;
+            opacity: 0.3;
+        }
+
+        .box h2 {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+
+        .box p {
+            font-size: 16px;
+        }
+
+        .navigation a.left {
+            display: flex;
+            text-align: start;
+            float: left;
+            margin-left: 40px;
+        }
+        
+        .avatar {
+            width: 40px; 
+            height: 40px;
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .logo {
+            width: 250px;
+            height: 70px;
+        }
+        button{
+            text-decoration: none;
+            width: 150px;
+            height: 50px;
+            border: none;
+            background-color: #1b244d;
+            color: rgb(245, 237, 237);
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }  
+         
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" class="logo">
+    <div class="navigation">
+        <a href="login.html" class="left">Login</a>
+        <a href="homepage.html" class="left">Home</a>
+        <a href="#" class="left">Services</a>
+        <a href="contact.html" class="left">Contact</a>
+        <div class="avatar"><img class="left" src="avatar2.jpg" width="50" height="50" style="border-radius: 50%;margin-left: 40px;"></div>
+    </div>
+</div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="yoga.html" >YOGA</a></li><br>
+                <li><a href="poses.html">POSTURES</a></li><br>
+                <li><a href="game.html" >GAME</a></li><br>
+                <li><a href="#" >Explore more</a></li><br>
+            </ul>
+        </div>
+        <div class="dashboard">
+            <div>
+                <a href="test.html">
+                    <button style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                        Take test
+                    </button>
+            
+            </div>
+            <div>
+                
+            <div>
+                <a href="solutions.html"><button >Solutions</button></a>
+
+            </div>
+
+            <!-- Add more boxes as needed -->
+        </div>
+    </div>
+</body>
+</html>
